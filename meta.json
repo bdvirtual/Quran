@@ -1,0 +1,19 @@
+{
+  "surahs": [
+    { "surah_no": 100, "ar_name": "العاديات", "bn_name": "আল-আদিয়াত", "en_name": "Al-'Adiyat" },
+    { "surah_no": 101, "ar_name": "القارعة", "bn_name": "আল-কারিআহ", "en_name": "Al-Qari'ah" },
+    { "surah_no": 102, "ar_name": "التكاثر", "bn_name": "আত-তাকাসুর", "en_name": "At-Takathur" },
+    { "surah_no": 103, "ar_name": "العصر", "bn_name": "আল-আসর", "en_name": "Al-'Asr" },
+    { "surah_no": 104, "ar_name": "الهمزة", "bn_name": "আল-হুমাযাহ", "en_name": "Al-Humazah" },
+    { "surah_no": 105, "ar_name": "الفيل", "bn_name": "আল-ফীল", "en_name": "Al-Fil" },
+    { "surah_no": 106, "ar_name": "قريش", "bn_name": "কুরাইশ", "en_name": "Quraysh" },
+    { "surah_no": 107, "ar_name": "الماعون", "bn_name": "আল-মাউন", "en_name": "Al-Ma'un" },
+    { "surah_no": 108, "ar_name": "الكوثر", "bn_name": "আল-কাৱসার", "en_name": "Al-Kawthar" },
+    { "surah_no": 109, "ar_name": "الكافرون", "bn_name": "আল-কাফিরুন", "en_name": "Al-Kafirun" },
+    { "surah_no": 110, "ar_name": "النصر", "bn_name": "আন-নাসর", "en_name": "An-Nasr" },
+    { "surah_no": 111, "ar_name": "المسد", "bn_name": "আল-মাসাদ", "en_name": "Al-Masad" },
+    { "surah_no": 112, "ar_name": "الإخلاص", "bn_name": "আল-ইখলাস", "en_name": "Al-Ikhlas" },
+    { "surah_no": 113, "ar_name": "الفلق", "bn_name": "আল-ফালাক", "en_name": "Al-Falaq" },
+    { "surah_no": 114, "ar_name": "الناس", "bn_name": "আন-নাস", "en_name": "An-Nas" }
+  ]
+}
