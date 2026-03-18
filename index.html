@@ -3,85 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quran App</title>
+  <title>Quran — সূচিপত্র</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app">
-    <section class="reader">
+  <main class="index-app">
+    <section class="index-shell">
+      <header class="index-hero">
+        <div class="index-hero-top">
+          <div class="index-badge">Quran</div>
+        </div>
+        <h1 class="index-title">সূচিপত্র</h1>
+        <p class="index-subtitle">সূরা ১–১১৪</p>
+      </header>
 
-      <header class="topbar">
-  <button class="icon-btn" id="backBtn" aria-label="Back">
-    <svg class="top-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M15 18L9 12L15 6" />
-    </svg>
-  </button>
-
-    <div class="topbar-center">
-        <select class="surah-chip-select" id="surahSelectTop" aria-label="Surah select"></select>
-    </div>
-
-    <div class="topbar-right">
-        <button class="icon-btn" id="readingModeBtn" aria-label="Reading mode">
-        <svg class="top-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4.5 6.5C4.5 5.4 5.4 4.5 6.5 4.5H11V19.5H6.5C5.4 19.5 4.5 18.6 4.5 17.5V6.5Z" />
-            <path d="M19.5 6.5C19.5 5.4 18.6 4.5 17.5 4.5H13V19.5H17.5C18.6 19.5 19.5 18.6 19.5 17.5V6.5Z" />
-            <path d="M11 6C9.8 5.6 8.4 5.4 7 5.4" />
-            <path d="M13 6C14.2 5.6 15.6 5.4 17 5.4" />
-        </svg>
-        </button>
-
-        <button class="icon-btn" id="settingsBtn" aria-label="Settings">
-        <svg class="top-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="5" y1="6" x2="19" y2="6" />
-            <circle cx="9" cy="6" r="1.8" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <circle cx="15" cy="12" r="1.8" />
-            <line x1="5" y1="18" x2="19" y2="18" />
-            <circle cx="11" cy="18" r="1.8" />
-        </svg>
-        </button>
-    </div>
-    </header>
-      
-
-      <section id="surahHeader"></section>
-      <section id="ayahContainer"></section>
-
+      <section id="surahList" class="surah-list"></section>
     </section>
   </main>
 
-  <div id="drawerOverlay" class="drawer-overlay hidden"></div>
+  <script>
+    async function loadMeta() {
+      const res = await fetch("./meta.json");
+      const meta = await res.json();
 
-  <aside id="settingsDrawer" class="settings-drawer hidden">
-    <div class="drawer-header">
-      <h3>সেটিংস</h3>
-      <button class="icon-btn" id="closeDrawerBtn" aria-label="Close settings">
-  <svg class="top-icon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M6 6L18 18" />
-    <path d="M18 6L6 18" />
-  </svg>
-</button>
-    </div>
+      const surahList = document.getElementById("surahList");
 
-    <div class="drawer-section">
-      <label class="control-item">
-        <input type="checkbox" id="toggleArabic" checked>
-        <span>আরবি দেখান</span>
-      </label>
+      surahList.innerHTML = meta.surahs.map((surah) => {
+        return `
+          <a class="surah-card" href="./reader.html?surah=${surah.surah_no}">
+            <div class="surah-card-left">
+              <div class="surah-number">${surah.surah_no}</div>
+              <div class="surah-text">
+                <div class="surah-bn-name">${surah.bn_name}</div>
+                <div class="surah-en-name">${surah.en_name}</div>
+              </div>
+            </div>
 
-      <label class="control-item">
-        <input type="checkbox" id="toggleBn" checked>
-        <span>বাংলা দেখান</span>
-      </label>
+            <div class="surah-card-right">
+              <div class="surah-ar-name">${surah.ar_name}</div>
+              <div class="surah-ayah-count">${surah.ayah_count} Ayah</div>
+            </div>
+          </a>
+        `;
+      }).join("");
+    }
 
-      <label class="control-item">
-        <input type="checkbox" id="toggleW2W">
-        <span>শব্দে শব্দে বাংলা</span>
-      </label>
-    </div>
-  </aside>
-
-  <script src="app.js"></script>
+    loadMeta();
+  </script>
 </body>
 </html>
